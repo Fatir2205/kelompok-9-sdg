@@ -1,4 +1,11 @@
- Tahap 3 – Praktik Operasi Database (CRUD)
+Tahap 2 - Implementasi Basis Data
+ 
+
+
+
+
+
+Tahap 3 – Praktik Operasi Database (CRUD)
     --CREATE 
    INSERT INTO ruas_jalan (nama_ruas, jenis_jalan, panjang, lebar_jalan, kecepatan_normal) VALUES
 ('Jl. Asahan', 'Protokol', 3.50, 12.00, 50.00),
