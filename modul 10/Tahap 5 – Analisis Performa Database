@@ -1,0 +1,20 @@
+-- 1. sebelum
+EXPLAIN SELECT
+    rj.id_ruas,
+    rj.nama_ruas,
+    SUM(k.jumlah_kendaraan) AS total_kendaraan
+FROM rkp1_db.ruas_jalan rj
+JOIN rkp1_db.kepadatan k ON rj.id_ruas = k.id_ruas
+GROUP BY rj.id_ruas, rj.nama_ruas;
+
+
+-- 2. sesudah
+CREATE INDEX idx_kepadatan_id_ruas ON rkp1_db.kepadatan(id_ruas);
+
+EXPLAIN SELECT
+    rj.id_ruas,
+    rj.nama_ruas,
+    SUM(k.jumlah_kendaraan) AS total_kendaraan
+FROM rkp1_db.ruas_jalan rj
+JOIN rkp1_db.kepadatan k ON rj.id_ruas = k.id_ruas
+GROUP BY rj.id_ruas, rj.nama_ruas;
