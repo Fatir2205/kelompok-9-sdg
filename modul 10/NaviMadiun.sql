@@ -1,34 +1,46 @@
-Tahap 4 – Pengujian Transaksi Database
-1. ROLLBACK
-  START TRANSACTION;
+ Tahap 3 – Praktik Operasi Database (CRUD)
+    --CREATE 
+   INSERT INTO ruas_jalan (nama_ruas, jenis_jalan, panjang, lebar_jalan, kecepatan_normal) VALUES
+('Jl. Asahan', 'Protokol', 3.50, 12.00, 50.00),
+('Jl. Diponegoro', 'Arteri', 2.00, 14.00, 60.00);
+  --READ
+SELECT * FROM ruas_jalan
+  --UPDATE 
+UPDATE ruas_jalan SET nama_ruas = 'Jl. Diponegoro' WHERE id_ruas = 3;
+UPDATE ruas_jalan SET nama_ruas = 'Jl. Asahan' WHERE id_ruas = 4;
+-- DELETE
+DELETE FROM kepadatan WHERE id_kepadatan = 3;
+   --Menguji Integritas Referensial
 
+
+
+
+
+
+Tahap 4 – Pengujian Transaksi Database
+  --ROLLBACK
+  START TRANSACTION;
 -- Step 1: Tambah data kepadatan baru
 INSERT INTO kepadatan (id_ruas, jumlah_kendaraan) VALUES (1, 300);
-
 -- Step 2: Update kolom denormalisasi di ruas_jalan
 UPDATE ruas_jalan 
 SET total_kendaraan = total_kendaraan + 300 
 WHERE id_ruas = 1;
-
 -- Skenario simulasi kesalahan / pembatalan bisnis
 ROLLBACK; 
-
 -- Hasil Check: Data tidak berubah di database (di-restore ke kondisi awal)
 SELECT total_kendaraan FROM ruas_jalan WHERE id_ruas = 1;
-2. COMMIT
-  START TRANSACTION;
 
+  --COOMMIT
+  START TRANSACTION;
 -- Step 1: Tambah data kepadatan baru
 INSERT INTO kepadatan (id_ruas, jumlah_kendaraan) VALUES (1, 300);
-
 -- Step 2: Update kolom denormalisasi di ruas_jalan
 UPDATE ruas_jalan 
 SET total_kendaraan = total_kendaraan + 300 
 WHERE id_ruas = 1;
-
 -- Simpan secara permanen
 COMMIT;
-
 -- Hasil Check: Data berhasil diperbarui secara permanen di database
 SELECT total_kendaraan FROM ruas_jalan WHERE id_ruas = 1;
 
@@ -43,8 +55,6 @@ EXPLAIN SELECT
 FROM rkp1_db.ruas_jalan rj
 JOIN rkp1_db.kepadatan k ON rj.id_ruas = k.id_ruas
 GROUP BY rj.id_ruas, rj.nama_ruas;
-
-
 -- 2. sesudah
 CREATE INDEX idx_kepadatan_id_ruas ON rkp1_db.kepadatan(id_ruas);
 
