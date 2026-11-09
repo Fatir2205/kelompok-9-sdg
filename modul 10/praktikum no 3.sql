@@ -1,4 +1,4 @@
---- 1. sebelum
+-- 1. sebelum
 EXPLAIN SELECT 
     rj.id_ruas, 
     rj.nama_ruas, 
