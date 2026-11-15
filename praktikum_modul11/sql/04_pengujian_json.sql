@@ -1,8 +1,6 @@
 --1.INSERT
 USE praktikum_modul11;
 
--- Bersihkan data lama jika ingin di-reset (opsional)
--- TRUNCATE TABLE ruas_jalan;
 
 -- Data ke-1: Atribut fokus pada transportasi umum & persimpangan
 INSERT INTO ruas_jalan (nama_ruas, jenis_jalan, panjang, lebar_jalan, kecepatan_normal, geometri, total_kendaraan) 
