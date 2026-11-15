@@ -70,7 +70,7 @@ WHERE nama_ruas = 'Jl. Serayu';
 
 
 
--- 4.REMOVE
+--4.REMOVE
 update ruas_jalan
 set geometri = JSON_REMOVE(
 	geometri,
