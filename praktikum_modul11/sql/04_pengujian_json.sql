@@ -78,7 +78,7 @@ SET geometri = JSON_REMOVE(
 )
 WHERE nama_ruas = 'Jl. Serayu';
 
-Dan untuk memeriksa hasil penghapusan tersebut:
+--Dan untuk memeriksa hasil penghapusan tersebut:
 
 SELECT 
     nama_ruas,
