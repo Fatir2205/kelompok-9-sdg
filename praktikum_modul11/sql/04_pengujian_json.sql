@@ -73,14 +73,14 @@ WHERE nama_ruas = 'Jl. Serayu';
 -- 4.REMOVE
 UPDATE ruas_jalan
 SET geometri = JSON_REMOVE(
-	geometri,
-	'$.jalur_khusus_bus'
+    geometri,
+    '$.jalur_khusus_bus'
 )
-WHERE nama_ruas ='Jl.serayu';
+WHERE nama_ruas = 'Jl. Serayu';
 
-dan untuk memeriksa hasil penghapusan tersebut:
+Dan untuk memeriksa hasil penghapusan tersebut:
 
 SELECT 
-		nama_ruas,
-		geometri
-	FROM ruas_jalan;
+    nama_ruas,
+    geometri
+FROM ruas_jalan;
