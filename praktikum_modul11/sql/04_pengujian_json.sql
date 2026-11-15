@@ -43,8 +43,6 @@ SELECT
 FROM ruas_jalan;
 
 
-
-
 -- 3.UPDATE
 -- 1. Gunakan database Anda
 USE praktikum_modul11;
@@ -64,8 +62,6 @@ SELECT
     geometri
 FROM ruas_jalan
 WHERE nama_ruas = 'Jl. Serayu';
-```[cite: 5]
-
 
 
 -- 4.REMOVE
